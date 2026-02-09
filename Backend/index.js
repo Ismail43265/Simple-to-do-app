@@ -1,7 +1,4 @@
 const express=require("express");
-const { createTodo, updateTodo }= require("./types.js")
-const { todo }= require("./Db.js");
-
 const app=express();
 app.use(express.json());
 
@@ -27,7 +24,7 @@ app.post("/todo", async function(req,res){
 
 app.get("/todos", async function(req,res){
     const todos= await todo.find({});
-    res.json({ todos })
+
 })
 
 app.put("/complete", async function(req,res){
@@ -39,12 +36,6 @@ app.put("/complete", async function(req,res){
             msg: "You put the wrong inputs"
         })
     }
-
-    await todo.updateOne(
-        { _id: req.body.id },
-        { completed:true }
-    )
-
     res.json({
         msg: "Todo marked as completed"
     })
