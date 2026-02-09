@@ -1,11 +1,13 @@
 const mongoose=require("mongoose");
 
-mongoose.connect("mongodb+srv://.mongodb.net/");
+mongoose.connect("mongodb+srv://mohammadismailalam28_db_user:tbag9ukK2ooWo2VP@cluster0.j8yyetf.mongodb.net/test")
+.then(() => console.log("DB connected"))
+.catch(err => console.log("DB error:", err));
 
 const todoSchema= mongoose.Schema({
-    title: string,
-    discription: string,
-    Completed: Boolean
+    title: String,
+    discription: String,
+    completed: Boolean
 })
 
 const todo=mongoose.model('todos', todoSchema);
