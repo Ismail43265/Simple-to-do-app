@@ -1,6 +1,6 @@
 const mongoose=require("mongoose");
 
-mongoose.connect("mongodb+srv://mohammadismailalam28_db_user:tbag9ukK2ooWo2VP@cluster0.j8yyetf.mongodb.net/test")
+mongoose.connect("mongodb+srv:///test")
 .then(() => console.log("DB connected"))
 .catch(err => console.log("DB error:", err));
 
