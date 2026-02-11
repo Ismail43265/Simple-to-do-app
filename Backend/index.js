@@ -1,6 +1,12 @@
 const express=require("express");
 const app=express();
+const cors=require("cors")
+const { todo }=require("./Db.js")
+const {createTodo,updateTodo}=require("./types.js")
+
 app.use(express.json());
+
+app.use(cors());
 
 app.post("/todo", async function(req,res){
     const createPayload=req.body;
@@ -24,6 +30,9 @@ app.post("/todo", async function(req,res){
 
 app.get("/todos", async function(req,res){
     const todos= await todo.find({});
+    res.json({
+        todos
+    });
 
 })
 
